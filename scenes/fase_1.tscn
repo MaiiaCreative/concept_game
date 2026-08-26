@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://dq5v2xqjs1pxy"]
+
+[ext_resource type="Script" uid="uid://dllxc145exx88" path="res://scripts/gerador_1.gd" id="1_ugoy3"]
+[ext_resource type="PackedScene" uid="uid://dpxjiunp0jhmb" path="res://scenes/player.tscn" id="2_u5pyp"]
+[ext_resource type="Script" uid="uid://be6asaslynqag" path="res://scripts/hud.gd" id="3_u7fro"]
+[ext_resource type="FontFile" uid="uid://djb8k7cfs4qey" path="res://assets/fonts/BLACKOUT.TTF" id="4_ktbmo"]
+[ext_resource type="Script" uid="uid://5y6o1t5qfjvv" path="res://scripts/gerador_power_up.gd" id="6_fh0dc"]
+[ext_resource type="Script" uid="uid://cogrxx605k8v8" path="res://scripts/camera_2d.gd" id="7_o5tko"]
+[ext_resource type="Script" uid="uid://drrqyphoahkx6" path="res://scripts/color_rect.gd" id="8_m44rk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7m51a"]
+size = Vector2(20, 768)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dnef"]
+size = Vector2(1344, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugoy3"]
+size = Vector2(20, 768)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5pyp"]
+size = Vector2(1344, 20)
+
+[node name="Fase1" type="Node2D" unique_id=1942420841]
+
+[node name="FundoGrid" type="ColorRect" parent="." unique_id=218068690]
+offset_right = 1344.0
+offset_bottom = 768.0
+color = Color(0, 0, 0, 1)
+
+[node name="Paredes" type="StaticBody2D" parent="." unique_id=624974175]
+
+[node name="ParedeEsquerda" type="CollisionShape2D" parent="Paredes" unique_id=1969798910]
+position = Vector2(0, 384)
+shape = SubResource("RectangleShape2D_7m51a")
+
+[node name="ParedeTopo" type="CollisionShape2D" parent="Paredes" unique_id=1618866795]
+position = Vector2(672, 0)
+shape = SubResource("RectangleShape2D_8dnef")
+
+[node name="ParedeDireita" type="CollisionShape2D" parent="Paredes" unique_id=209030355]
+position = Vector2(1344, 384)
+shape = SubResource("RectangleShape2D_ugoy3")
+
+[node name="ParadeBaixo" type="CollisionShape2D" parent="Paredes" unique_id=140105859]
+position = Vector2(672, 768)
+shape = SubResource("RectangleShape2D_u5pyp")
+
+[node name="Geradores" type="Node2D" parent="." unique_id=544008456]
+
+[node name="Gerador1" type="Node2D" parent="Geradores" unique_id=1509094774]
+script = ExtResource("1_ugoy3")
+
+[node name="Timer" type="Timer" parent="Geradores/Gerador1" unique_id=1476863553]
+autostart = true
+
+[node name="Player" parent="." unique_id=556269740 instance=ExtResource("2_u5pyp")]
+position = Vector2(626, 431)
+
+[node name="Controladores" type="Node2D" parent="." unique_id=962791225]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=259554986]
+script = ExtResource("3_u7fro")
+
+[node name="ScoreLabel" type="Label" parent="HUD" unique_id=1645451945]
+offset_left = 35.0
+offset_top = 38.0
+offset_right = 111.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("4_ktbmo")
+theme_override_font_sizes/font_size = 40
+text = "SCORE"
+
+[node name="GeradorPowerUp" type="Node2D" parent="." unique_id=92163332]
+script = ExtResource("6_fh0dc")
+
+[node name="Timer" type="Timer" parent="GeradorPowerUp" unique_id=2089723519]
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=406340042]
+anchor_mode = 0
+script = ExtResource("7_o5tko")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2075976522]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=85162632]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_m44rk")
+
+[connection signal="timeout" from="Geradores/Gerador1/Timer" to="Geradores/Gerador1" method="_on_timer_timeout"]
+[connection signal="timeout" from="GeradorPowerUp/Timer" to="GeradorPowerUp" method="_on_timer_timeout"]

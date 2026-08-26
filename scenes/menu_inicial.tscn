@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bmndqxuv50s3y"]
+
+[ext_resource type="Script" uid="uid://ypg1gnilns0d" path="res://scripts/menu_inicial.gd" id="1_1lqws"]
+[ext_resource type="Script" uid="uid://dvb6w5gmbj4w2" path="res://scripts/fundo_grid.gd" id="2_eg8ak"]
+[ext_resource type="FontFile" uid="uid://djb8k7cfs4qey" path="res://assets/fonts/BLACKOUT.TTF" id="3_nn1uv"]
+[ext_resource type="FontFile" uid="uid://yn5m42i7hvw" path="res://assets/fonts/CaviarDreams.ttf" id="4_twj80"]
+
+[node name="MenuInicial" type="Node2D" unique_id=864263272]
+script = ExtResource("1_1lqws")
+
+[node name="FundoGrid" type="Node2D" parent="." unique_id=647035210]
+script = ExtResource("2_eg8ak")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1868981966]
+
+[node name="TxtTitulo" type="Label" parent="HUD" unique_id=1031639824]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -331.0
+offset_top = 162.0
+offset_right = 331.0
+offset_bottom = 395.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_nn1uv")
+theme_override_font_sizes/font_size = 250
+text = "CONCEPT"
+
+[node name="TxtStart" type="Label" parent="HUD" unique_id=913012055]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -70.0
+offset_right = 48.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_twj80")
+theme_override_font_sizes/font_size = 80
+text = "CLICK START"

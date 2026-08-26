@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dpxjiunp0jhmb"]
+
+[ext_resource type="Texture2D" uid="uid://t220idqieb40" path="res://assets/sprites/spr_player/spr_player.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://dde1j4cogf0os" path="res://scripts/obj_player/player.gd" id="1_g2els"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1338796893]
+scale = Vector2(3, 3)
+script = ExtResource("1_g2els")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1348916371]
+texture = ExtResource("1_3vyb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=554349872]
+shape = SubResource("RectangleShape2D_g2els")
+
+[node name="SfxDamage" type="AudioStreamPlayer" parent="." unique_id=2090009182]
+
+[node name="SfxShieldOut" type="AudioStreamPlayer" parent="." unique_id=208565882]

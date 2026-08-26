@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://trd6e7pv8v0q"]
+
+[ext_resource type="Script" uid="uid://dd7tm67hogl2v" path="res://scripts/power_up.gd" id="1_j7my0"]
+[ext_resource type="Texture2D" uid="uid://cu24peoefw225" path="res://assets/sprites/spr_destroyer/spr_destroyer_1.png" id="2_ig136"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6us8"]
+size = Vector2(34, 34)
+
+[node name="PowerUp" type="Area2D" unique_id=373024133]
+script = ExtResource("1_j7my0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1053407546]
+texture = ExtResource("2_ig136")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1686554100]
+shape = SubResource("RectangleShape2D_a6us8")

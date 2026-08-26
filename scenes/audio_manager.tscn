@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dmdeavi322jd2"]
+
+[ext_resource type="AudioStream" uid="uid://dex6ag4ubhgev" path="res://assets/sounds/sfx_pop/sfx_pop.wav" id="1_m6ggh"]
+[ext_resource type="AudioStream" uid="uid://cjduibv1u8vvd" path="res://assets/sounds/sfx_shield_in/sfx_shield_in.wav" id="2_aoitu"]
+[ext_resource type="AudioStream" uid="uid://ddsnphl7qkn7o" path="res://assets/sounds/sfx_timestop/sfx_timestop.wav" id="3_njtn3"]
+[ext_resource type="AudioStream" uid="uid://bjmvh80mumxjh" path="res://assets/sounds/sfx_death/sfx_death.wav" id="4_kq7b2"]
+
+[node name="AudioManager" type="Node" unique_id=2144956819]
+
+[node name="SfxPop" type="AudioStreamPlayer" parent="." unique_id=330696902]
+stream = ExtResource("1_m6ggh")
+
+[node name="SfxShieldIn" type="AudioStreamPlayer" parent="." unique_id=946032695]
+stream = ExtResource("2_aoitu")
+
+[node name="SfxTimestop" type="AudioStreamPlayer" parent="." unique_id=1216309317]
+stream = ExtResource("3_njtn3")
+
+[node name="SfxDeath" type="AudioStreamPlayer" parent="." unique_id=1177213642]
+stream = ExtResource("4_kq7b2")

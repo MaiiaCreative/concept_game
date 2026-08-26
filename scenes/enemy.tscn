@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bu25yh8odkf16"]
+
+[ext_resource type="Script" uid="uid://c0yvi0ascgxeb" path="res://scripts/obj_enemy/enemy.gd" id="1_md0e3"]
+[ext_resource type="Texture2D" uid="uid://cwbsjdksdxsey" path="res://assets/sprites/spr_enemy/spr_enemy_1.png" id="2_4ra3w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5uy6h"]
+
+[node name="Enemy" type="Area2D" unique_id=1427289897 groups=["inimigos"]]
+scale = Vector2(3, 3)
+script = ExtResource("1_md0e3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=249584519]
+texture = ExtResource("2_4ra3w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=610239781]
+shape = SubResource("RectangleShape2D_5uy6h")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=986279196]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
